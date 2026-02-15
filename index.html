@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cartas de Amor 💌</title>
+<title>para ti sof</title>
 
 <style>
 body {
@@ -19,19 +19,20 @@ body {
   height: 100%;
 }
 
-/* SOBRE */
+/* WRAPPER */
 .envelope-wrapper {
   position: absolute;
-  width: 160px;
-  height: 120px;
+  width: 240px;
+  height: 180px;
 }
 
+/* SOBRE */
 .envelope {
   position: absolute;
-  width: 160px;
-  height: 110px;
+  width: 240px;
+  height: 170px;
   background: #ff4f81;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
   z-index: 3;
   overflow: hidden;
@@ -40,9 +41,9 @@ body {
 .envelope::before {
   content: "";
   position: absolute;
-  border-left: 80px solid transparent;
-  border-right: 80px solid transparent;
-  border-top: 60px solid #ff7fa2;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-top: 90px solid #ff7fa2;
   top: 0;
   left: 0;
 }
@@ -50,10 +51,10 @@ body {
 .envelope::after {
   content: "❤";
   position: absolute;
-  top: 55%;
+  top: 62%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 22px;
+  font-size: 30px;
   color: #fff;
   animation: beat 1.4s infinite;
 }
@@ -61,66 +62,79 @@ body {
 /* CARTA */
 .letter {
   position: absolute;
-  width: 140px;
-  height: 170px;
+  width: 220px;
+  height: 300px;
   background: white;
   left: 10px;
   top: 30px;
-  border-radius: 6px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 18px 16px;
   box-sizing: border-box;
   text-align: center;
-  font-size: 13px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
   z-index: 2;
-  transform: translateY(80px);
+  transform: translateY(170px);
   opacity: 0;
   transition: all 0.9s ease;
 }
 
 .envelope-wrapper.open .letter {
-  transform: translateY(-90px);
+  transform: translateY(-170px);
   opacity: 1;
   z-index: 4;
 }
 
-/* POSICIONES */
-.center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.top-left { top: 80px; left: 120px; }
-.top-right { top: 80px; right: 120px; }
-.bottom-left { bottom: 80px; left: 120px; }
-.bottom-right { bottom: 80px; right: 120px; }
+/* POSICIONES (MÁS AL CENTRO) */
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.top-left {
+  top: 180px;
+  left: 260px;
+}
+
+.top-right {
+  top: 180px;
+  right: 260px;
+}
+
+.bottom-left {
+  bottom: 180px;
+  left: 260px;
+}
+
+.bottom-right {
+  bottom: 180px;
+  right: 260px;
+}
 
 /* ANIMACIONES */
 @keyframes beat {
   0% { transform: translate(-50%, -50%) scale(1); }
-  25% { transform: translate(-50%, -50%) scale(1.3); }
+  25% { transform: translate(-50%, -50%) scale(1.35); }
   50% { transform: translate(-50%, -50%) scale(1); }
 }
 
-@keyframes floatUp {
-  to { transform: translateY(-120vh); opacity: 0; }
-}
-@keyframes floatDown {
-  to { transform: translateY(120vh); opacity: 0; }
-}
-@keyframes floatLeft {
-  to { transform: translateX(-120vw); opacity: 0; }
-}
-@keyframes floatRight {
-  to { transform: translateX(120vw); opacity: 0; }
-}
+@keyframes floatUp { to { transform: translateY(-120vh); opacity: 0; } }
+@keyframes floatDown { to { transform: translateY(120vh); opacity: 0; } }
+@keyframes floatLeft { to { transform: translateX(-120vw); opacity: 0; } }
+@keyframes floatRight { to { transform: translateX(120vw); opacity: 0; } }
 
 /* CORAZONES */
 .heart {
   position: fixed;
-  color: rgba(255, 0, 100, 0.8);
+  color: rgba(255, 0, 120, 0.85);
   pointer-events: none;
 }
 
-/* HOVER */
+/* EFECTO */
 .envelope:hover {
-  box-shadow: 0 0 25px rgba(255, 0, 100, 0.7);
+  box-shadow: 0 0 35px rgba(255, 0, 120, 0.85);
 }
 </style>
 </head>
@@ -131,27 +145,43 @@ body {
 
   <div class="envelope-wrapper center" onclick="this.classList.toggle('open')">
     <div class="envelope"></div>
-    <div class="letter">💖<br>Te amo más de lo que imaginas, espero estar haciendote feliz mi amor </div>
+    <div class="letter">
+      💖<br><br>
+      Te amo más de lo que imaginas.<br>
+      Cada latido mío lleva tu nombre.
+    </div>
   </div>
 
   <div class="envelope-wrapper top-left" onclick="this.classList.toggle('open')">
     <div class="envelope"></div>
-    <div class="letter">🌹<br>Eres mi pensamiento favorito, espero tener una vida contigo</div>
+    <div class="letter">
+      🌹<br><br>
+      Pensarte es sonreír sin darme cuenta.
+    </div>
   </div>
 
   <div class="envelope-wrapper top-right" onclick="this.classList.toggle('open')">
     <div class="envelope"></div>
-    <div class="letter">💕<br>Mi lugar seguro eres tú, no te cambiaria por nada del mundo</div>
+    <div class="letter">
+      💕<br><br>
+      Mi lugar seguro siempre eres tú.
+    </div>
   </div>
 
   <div class="envelope-wrapper bottom-left" onclick="this.classList.toggle('open')">
     <div class="envelope"></div>
-    <div class="letter">💘<br>Todo es mejor contigo, soy muy feliz de ser tu novio </div>
+    <div class="letter">
+      💘<br><br>
+      Contigo todo tiene sentido.
+    </div>
   </div>
 
   <div class="envelope-wrapper bottom-right" onclick="this.classList.toggle('open')">
     <div class="envelope"></div>
-    <div class="letter">💌<br>Gracias por existir, eres mi persona favorita</div>
+    <div class="letter">
+      💌<br><br>
+      Gracias por existir y por quedarte.
+    </div>
   </div>
 
 </div>
@@ -159,38 +189,35 @@ body {
 <script>
 function crearCorazon() {
   const h = document.createElement('div');
-  h.classList.add('heart');
+  h.className = 'heart';
   h.innerHTML = '❤';
 
-  const size = 12 + Math.random() * 22;
-  h.style.fontSize = size + 'px';
+  h.style.fontSize = (16 + Math.random() * 32) + 'px';
+  const d = 3 + Math.random() * 4;
 
   const side = Math.floor(Math.random() * 4);
-  const duration = 3 + Math.random() * 4;
-
   if (side === 0) {
     h.style.left = Math.random() * 100 + 'vw';
     h.style.bottom = '-20px';
-    h.style.animation = `floatUp ${duration}s linear`;
+    h.style.animation = `floatUp ${d}s linear`;
   } else if (side === 1) {
     h.style.left = Math.random() * 100 + 'vw';
     h.style.top = '-20px';
-    h.style.animation = `floatDown ${duration}s linear`;
+    h.style.animation = `floatDown ${d}s linear`;
   } else if (side === 2) {
     h.style.left = '-20px';
     h.style.top = Math.random() * 100 + 'vh';
-    h.style.animation = `floatRight ${duration}s linear`;
+    h.style.animation = `floatRight ${d}s linear`;
   } else {
     h.style.right = '-20px';
     h.style.top = Math.random() * 100 + 'vh';
-    h.style.animation = `floatLeft ${duration}s linear`;
+    h.style.animation = `floatLeft ${d}s linear`;
   }
 
   document.body.appendChild(h);
-  setTimeout(() => h.remove(), duration * 1000);
+  setTimeout(() => h.remove(), d * 1000);
 }
-
-setInterval(crearCorazon, 150);
+setInterval(crearCorazon, 120);
 </script>
 
 </body>
