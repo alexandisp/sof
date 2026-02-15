@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cartas de Amor 💌</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle, #ffd1dc, #ff8fab);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* SOBRE */
+.envelope-wrapper {
+  position: absolute;
+  width: 160px;
+  height: 120px;
+}
+
+.envelope {
+  position: absolute;
+  width: 160px;
+  height: 110px;
+  background: #ff4f81;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-top: 60px solid #ff7fa2;
+  top: 0;
+  left: 0;
+}
+
+.envelope::after {
+  content: "❤";
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  color: #fff;
+  animation: beat 1.4s infinite;
+}
+
+/* CARTA */
+.letter {
+  position: absolute;
+  width: 140px;
+  height: 170px;
+  background: white;
+  left: 10px;
+  top: 30px;
+  border-radius: 6px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 2;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.9s ease;
+}
+
+.envelope-wrapper.open .letter {
+  transform: translateY(-90px);
+  opacity: 1;
+  z-index: 4;
+}
+
+/* POSICIONES */
+.center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.top-left { top: 80px; left: 120px; }
+.top-right { top: 80px; right: 120px; }
+.bottom-left { bottom: 80px; left: 120px; }
+.bottom-right { bottom: 80px; right: 120px; }
+
+/* ANIMACIONES */
+@keyframes beat {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  25% { transform: translate(-50%, -50%) scale(1.3); }
+  50% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+@keyframes floatDown {
+  to { transform: translateY(120vh); opacity: 0; }
+}
+@keyframes floatLeft {
+  to { transform: translateX(-120vw); opacity: 0; }
+}
+@keyframes floatRight {
+  to { transform: translateX(120vw); opacity: 0; }
+}
+
+/* CORAZONES */
+.heart {
+  position: fixed;
+  color: rgba(255, 0, 100, 0.8);
+  pointer-events: none;
+}
+
+/* HOVER */
+.envelope:hover {
+  box-shadow: 0 0 25px rgba(255, 0, 100, 0.7);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="envelope-wrapper center" onclick="this.classList.toggle('open')">
+    <div class="envelope"></div>
+    <div class="letter">💖<br>Te amo más de lo que imaginas, espero estar haciendote feliz mi amor </div>
+  </div>
+
+  <div class="envelope-wrapper top-left" onclick="this.classList.toggle('open')">
+    <div class="envelope"></div>
+    <div class="letter">🌹<br>Eres mi pensamiento favorito, espero tener una vida contigo</div>
+  </div>
+
+  <div class="envelope-wrapper top-right" onclick="this.classList.toggle('open')">
+    <div class="envelope"></div>
+    <div class="letter">💕<br>Mi lugar seguro eres tú, no te cambiaria por nada del mundo</div>
+  </div>
+
+  <div class="envelope-wrapper bottom-left" onclick="this.classList.toggle('open')">
+    <div class="envelope"></div>
+    <div class="letter">💘<br>Todo es mejor contigo, soy muy feliz de ser tu novio </div>
+  </div>
+
+  <div class="envelope-wrapper bottom-right" onclick="this.classList.toggle('open')">
+    <div class="envelope"></div>
+    <div class="letter">💌<br>Gracias por existir, eres mi persona favorita</div>
+  </div>
+
+</div>
+
+<script>
+function crearCorazon() {
+  const h = document.createElement('div');
+  h.classList.add('heart');
+  h.innerHTML = '❤';
+
+  const size = 12 + Math.random() * 22;
+  h.style.fontSize = size + 'px';
+
+  const side = Math.floor(Math.random() * 4);
+  const duration = 3 + Math.random() * 4;
+
+  if (side === 0) {
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.bottom = '-20px';
+    h.style.animation = `floatUp ${duration}s linear`;
+  } else if (side === 1) {
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.top = '-20px';
+    h.style.animation = `floatDown ${duration}s linear`;
+  } else if (side === 2) {
+    h.style.left = '-20px';
+    h.style.top = Math.random() * 100 + 'vh';
+    h.style.animation = `floatRight ${duration}s linear`;
+  } else {
+    h.style.right = '-20px';
+    h.style.top = Math.random() * 100 + 'vh';
+    h.style.animation = `floatLeft ${duration}s linear`;
+  }
+
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), duration * 1000);
+}
+
+setInterval(crearCorazon, 150);
+</script>
+
+</body>
+</html>
